@@ -272,13 +272,13 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
                                     let prettyDescription = type.prettyDescription
                                     if currentStatus == .authorized {
                                         self.setButtonAuthorizedStyle(button)
-                                        button.setTitle("Allowed \(prettyDescription)".localized.uppercased(), for: .normal)
+                                        button.setTitle("Allowed \(prettyDescription)".localized, for: .normal)
                                     } else if currentStatus == .unauthorized {
                                         self.setButtonUnauthorizedStyle(button)
-                                        button.setTitle("Denied \(prettyDescription)".localized.uppercased(), for: .normal)
+                                        button.setTitle("Denied \(prettyDescription)".localized, for: .normal)
                                     } else if currentStatus == .disabled {
                                         //                setButtonDisabledStyle(button)
-                                        button.setTitle("\(prettyDescription) Disabled".localized.uppercased(), for: .normal)
+                                        button.setTitle("\(prettyDescription) Disabled".localized, for: .normal)
                                     }
                                     
                                     let label = self.permissionLabels[index]
@@ -348,7 +348,7 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
     
     /// This shouldn't be working like this, it is tempral and should be solved in a new version.
     @objc func manageSelector(_ button: UIButton) {
-        
+        print(button.accessibilityIdentifier)
         switch button.accessibilityIdentifier {
         case "permissionscope.button.contacts":
             requestContacts()
