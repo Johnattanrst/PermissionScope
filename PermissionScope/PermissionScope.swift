@@ -333,12 +333,12 @@ typealias resultsForConfigClosure     = ([PermissionResult]) -> Void
         // this is a bit of a mess, eh?
         switch type {
         case .locationAlways, .locationInUse:
-            button.setTitle("Enable \(type.prettyDescription)".localized.uppercased(), for: .normal)
+            button.setTitle("Enable \(type.prettyDescription)".localized, for: .normal)
         default:
-            button.setTitle("Allow \(type)".localized.uppercased(), for: .normal)
+            button.setTitle("Allow \(type)".localized, for: .normal)
         }
         
-        button.addTarget(self, action: Selector("request\(type)"), for: .touchUpInside)
+        button.addTarget(self, action: Selector("request\(type.description)"), for: .touchUpInside)
 
         button.accessibilityIdentifier = "permissionscope.button.\(type)".lowercased()
         
